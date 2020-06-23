@@ -1,0 +1,254 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="TrangChu.master.cs" Inherits="QuanLyGiaoDienPhim.TrangChu" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/fontawesome-all.min.css" rel="stylesheet" />
+    <link href="css/TrangChuPhim.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <a href="TrangChuPhim.aspx">
+            <img class="logo-img" src="images/Logo_Background.png" />
+        </a>
+        <nav class="navbar navbar-expand-lg">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon d-flex justify-content-center align-items-center">
+                    <i class="fas fa-bars"></i>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="PhimLe.aspx?TrangThai=Phim Lẻ">Phim Lẻ</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="TheLoai.aspx?TheLoai=TheLoai" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Thể loại
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="TheLoai.aspx?TheLoai=Anime">Anime</a>
+                            <a class="dropdown-item" href="TheLoai.aspx?TheLoai=Hành Động">Hành Động</a>
+                            <a class="dropdown-item" href="TheLoai.aspx?TheLoai=Võ Thuật">Võ Thuật</a>
+                            <a class="dropdown-item" href="TheLoai.aspx?TheLoai=Khoa Học Viễn Tưởng">Khoa Học Viễn Tưởng</a>
+                            <a class="dropdown-item" href="TheLoai.aspx?TheLoai=Kinh Dị">Kinh Dị</a>
+                            <a class="dropdown-item" href="TheLoai.aspx?TheLoai=Tâm Lý">Tâm Lý</a>
+                            <a class="dropdown-item" href="TheLoai.aspx?TheLoai=Hài">Hài</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="TheLoai.aspx?QuocGia=QuocGia" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Quốc gia
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="QuocGia.aspx?QuocGia=Âu Mỹ">Âu Mỹ</a>
+                            <a class="dropdown-item" href="QuocGia.aspx?QuocGia=Trung Quốc">Trung Quốc</a>
+                            <a class="dropdown-item" href="QuocGia.aspx?QuocGia=Việt Nam">Việt Nam</a>
+                            <a class="dropdown-item" href="QuocGia.aspx?QuocGia=Hàn Quốc">Hàn Quốc</a>
+                            <a class="dropdown-item" href="QuocGia.aspx?QuocGia=Nhật Bản">Nhật Bản</a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="thanhdangnhap">
+                    <asp:Button CssClass="btn-dangnhap" ID="btnDangNhap" runat="server" Text="Đăng Nhập" OnClick="btnDangNhap_Click" PostBackUrl="~/Login.aspx" />
+                    <asp:Menu ID="mnuTrangThaiDangNhap" runat="server" Visible="False" OnMenuItemClick="mnuTrangThaiDangNhap_MenuItemClick" Orientation="Horizontal" BorderColor="#0066FF" Height="65px" DynamicHorizontalOffset="-65">
+                        <DynamicHoverStyle ForeColor="White" BackColor="#33CC33" />
+                        <DynamicMenuItemStyle CssClass="menuitemDN" />
+                        <DynamicMenuStyle CssClass="menuDangNhap" />
+                        <DynamicItemTemplate>
+                            <%# Eval("Text") %>
+                        </DynamicItemTemplate>
+                        <Items>
+                            <asp:MenuItem ImageUrl="~/images/avatar.gif">
+                                <asp:MenuItem Text="Kho Phim Của Tôi" Value="Kho Phim Của Tôi"></asp:MenuItem>
+                                <asp:MenuItem Text="Thông Tin Cá Nhân" Value="Thông Tin Cá Nhân"></asp:MenuItem>
+                                <asp:MenuItem Text="Thoát" Value="Thoát"></asp:MenuItem>
+                            </asp:MenuItem>
+                        </Items>
+                    </asp:Menu>
+                </div>
+            </div>
+        </nav>
+        <div class="input-group mb-3 khungtimkiem">
+            <input type="text" class="form-control thanhtimkiem" placeholder="Tìm kiếm phim..." runat="server" aria-label="Tìm kiếm phim..." aria-describedby="ImgbtnTimKiem" id="txtTimKiem" />
+            <div class="input-group-append">
+                <asp:ImageButton CssClass="btn" ImageUrl="~/images/search(24px).png" ID="ImgbtnTimKiem" runat="server" OnClick="ImgbtnTimKiem_Click" />
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <div class="col-lg-3 rank">
+                    <div class="rank-container">
+                        <div class="rank-label">
+                            <h3>BẢNG XẾP HẠNG
+                            </h3>
+                        </div>
+                        <ul class="rank-list">
+                            <li class="row rank-box">
+                                <div class="rank-number col-lg-1">
+                                    1
+                                </div>
+                                <div class="rank-img col-lg-4">
+                                    <img class="rank-image" src="images/DiepVienXXXL.jpg" />
+                                </div>
+                                <div class="rank-content col-lg-7">
+                                    <a class="rank-title" href="NoiDungPhim.aspx?MaPhim=7" title="Điệp viên XXXL">Điệp viên XXXL
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="row rank-box">
+                                <div class="rank-number col-lg-1">
+                                    2
+                                </div>
+                                <div class="rank-img col-lg-4">
+                                    <img class="rank-image" src="images/daichienthanhansi.jpg" />
+                                </div>
+                                <div class="rank-content col-lg-7">
+                                    <a class="rank-title" href="NoiDungPhim.aspx?MaPhim=15" title="Đại chiến thành Ansi">Đại chiến thành Ansi
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="row rank-box">
+                                <div class="rank-number col-lg-1">
+                                    3
+                                </div>
+                                <div class="rank-img col-lg-4">
+                                    <img class="rank-image" src="images/ChamVaoTimEm.jpg" />
+                                </div>
+                                <div class="rank-content col-lg-7">
+                                    <a class="rank-title" href="NoiDungPhim.aspx?MaPhim=10" title="Chạm vào tim em">Chạm vào tim em
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="row rank-box">
+                                <div class="rank-number col-lg-1">
+                                    4
+                                </div>
+                                <div class="rank-img col-lg-4">
+                                    <img class="rank-image" src="images/Hellboy2.jpg" />
+                                </div>
+                                <div class="rank-content col-lg-7">
+                                    <a class="rank-title" href="NoiDungPhim.aspx?MaPhim=13" title="Hellboy 2">Hellboy 2
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="row rank-box">
+                                <div class="rank-number col-lg-1">
+                                    5
+                                </div>
+                                <div class="rank-img col-lg-4">
+                                    <img class="rank-image" src="images/Sword Art Online(SS3).jpg" />
+                                </div>
+                                <div class="rank-content col-lg-7">
+                                    <a class="rank-title" href="NoiDungPhim.aspx?MaPhim=6" title="Sword Art Online(SS3)">Sword Art Online(SS3)
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="row rank-box">
+                                <div class="rank-number col-lg-1">
+                                    6
+                                </div>
+                                <div class="rank-img col-lg-4">
+                                    <img class="rank-image" src="images/Overlord(SS3).jpg" />
+                                </div>
+                                <div class="rank-content col-lg-7">
+                                    <a class="rank-title" href="NoiDungPhim.aspx?MaPhim=3" title="Overlord(SS3)">Overlord(SS3)
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="row rank-box">
+                                <div class="rank-number col-lg-1">
+                                    7
+                                </div>
+                                <div class="rank-img col-lg-4">
+                                    <img class="rank-image" src="images/TeCongHangYeu.jpg" />
+                                </div>
+                                <div class="rank-content col-lg-7">
+                                    <a class="rank-title" href="NoiDungPhim.aspx?MaPhim=11" title="TeCongHangYeu">TeCongHangYeu
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="row rank-box">
+                                <div class="rank-number col-lg-1">
+                                    8
+                                </div>
+                                <div class="rank-img col-lg-4">
+                                    <img class="rank-image" src="images/Daicahoasoaica.jpg" />
+                                </div>
+                                <div class="rank-content col-lg-7">
+                                    <a class="rank-title" href="NoiDungPhim.aspx?MaPhim=20" title="Đại ca hóa soái ca">Đại ca hóa soái ca
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="row rank-box">
+                                <div class="rank-number col-lg-1">
+                                    9
+                                </div>
+                                <div class="rank-img col-lg-4">
+                                    <img class="rank-image" src="images/thangmaydinhmenh.jpg" />
+                                </div>
+                                <div class="rank-content col-lg-7">
+                                    <a class="rank-title" href="NoiDungPhim.aspx?MaPhim=18" title="Thang máy định mệnh">Thang máy định mệnh
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="row rank-box">
+                                <div class="rank-number col-lg-1">
+                                    10
+                                </div>
+                                <div class="rank-img col-lg-4">
+                                    <img class="rank-image" src="images/MIB(2019).jpg" />
+                                </div>
+                                <div class="rank-content col-lg-7">
+                                    <a class="rank-title" href="NoiDungPhim.aspx?MaPhim=16" title="MIB(2019)">MIB(2019)
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="gioithieu">
+                <h5>GIỚI THIỆU</h5>
+                <p>
+                    Trang web xem phim trực tuyến. Kho phim phong phú nhiều thể loại,cập nhật liên tục mỗi tuần.
+                </p>
+                <p>
+                    Xem tốt nhất với trình duyệt Mozilla Firefox và Google Chrome.
+                </p>
+            </div>
+        </div>
+        <a class="back-to-top" href="#" title="Back to top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+        <button id="btnthemsuaxoa" visible="false" class="btnThemXoaSua" runat="server" title="Edit">
+            <img src="../images/iconfinder_video_edit_103787.png" />
+        </button>
+        <div class="edit-dialog">
+            <a class="close" href="#">
+                <i class="fas fa-window-close"></i>
+            </a>
+            <h5>Chỉnh sửa phim của bạn</h5>
+            <div class="btn-bar">
+                <asp:Button ID="btnInsert" CssClass="btnInsert" runat="server" Text="Edit" PostBackUrl="~/Insert_Update_Phim.aspx" />
+                <asp:Button ID="btnDelete" CssClass="btnDelete" runat="server" Text="Delete" PostBackUrl="~/DeletePhim.aspx" />
+            </div>
+        </div>
+        <script src="javascript/jquery-3.4.1.min.js"></script>
+        <script src="javascript/bootstrap.min.js"></script>
+        <script src="javascript/TrangChu.js"></script>
+    </form>
+</body>
+</html>
+>

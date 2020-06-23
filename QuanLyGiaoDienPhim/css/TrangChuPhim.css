@@ -1,0 +1,567 @@
+* {
+    box-sizing: border-box;
+}
+
+.logo-img {
+    width: 100%;
+}
+
+h3 {
+    font-size: 23px;
+}
+
+body {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.navbar {
+    background-color: black;
+    margin: 0;
+    padding: 0px 20px;
+}
+
+.nav-link {
+    color: white;
+    display: block;
+    padding: 20px;
+}
+
+    .nav-link:hover {
+        background-color: rgba(128, 128, 128, 0.5);
+        color: aqua;
+    }
+
+.navbar-toggler {
+    border: 1px solid white;
+    color: white;
+}
+
+.dropdown-menu {
+    background: black;
+    top: 63px;
+}
+
+.dropdown-item {
+    color: white;
+}
+
+    .dropdown-item:hover {
+        background: rgba(0, 0, 0, 0.5);
+        color: aqua;
+    }
+
+.btn-dangnhap {
+    height: 30px;
+    width: 100px;
+    border: 2px solid cyan;
+    border-radius: 5px;
+    background: linear-gradient(to top, red, black);
+    color: whitesmoke;
+}
+
+    .btn-dangnhap:hover {
+        color: cyan;
+    }
+
+.khungtimkiem {
+    padding: 30px 10px 0px 10px;
+    top: -4px;
+    left: 0px;
+    z-index: 0;
+}
+
+.thanhtimkiem {
+    border: 1px solid whitesmoke;
+    background-color: black;
+    border-radius: 20px;
+}
+
+.btn {
+    border: 1px solid whitesmoke;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.container {
+    padding: 10px;
+}
+
+.col-lg-9 {
+    background: black;
+}
+
+.movies-container-title {
+    text-align: center;
+    background-color: blueviolet;
+    color: gold;
+    padding: 5.5px;
+}
+
+.movies-frame {
+    padding-left: 30px;
+}
+
+.movies-box {
+    padding: 10px;
+}
+
+.movie-img {
+    border: 1px solid gray;
+    position: relative;
+}
+
+.movie-name {
+    position: relative;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    border-bottom: 1px solid gray;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 15px;
+}
+
+    .movie-name .text {
+        position: absolute;
+        top: 10%;
+        left: 5px;
+        bottom: 0;
+        color: gold;
+        font-weight: 500;
+        float: left;
+        overflow: hidden;
+    }
+
+        .movie-name .text:hover {
+            text-decoration: none;
+        }
+
+.box-play {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: none;
+}
+
+.btnplay {
+    position: absolute;
+    top: 107.5px;
+    left: 71.5px;
+    color: white;
+    font-size: 50px;
+    display: none;
+}
+
+.movie-img:hover .box-play,
+.btnplay {
+    display: block;
+}
+
+.btnPageSwitch-bar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.btnPageSwitch {
+    padding: 5px 20px;
+    color: white;
+    background-color: gray;
+    border: 1px solid deepskyblue;
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+    .btnPageSwitch:hover {
+        color: yellow;
+        background-color: black;
+    }
+
+.sotrang {
+    display: block;
+    padding: 0px 10px;
+}
+
+.rank {
+    padding: 0px;
+}
+
+.rank-container {
+    background-color: black;
+    border: 1px solid gray;
+}
+
+.rank-label {
+    background-color: blueviolet;
+    color: gold;
+    text-align: center;
+    padding: 5px
+}
+
+.rank-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.rank-box {
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+    .rank-box:not(:last-child) {
+        border-bottom: solid 1px gray;
+    }
+
+.rank-number {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    background: gray;
+    color: white;
+}
+
+.rank-list > .rank-box:nth-child(1) .rank-number {
+    background-color: red;
+}
+
+.rank-list > .rank-box:nth-child(2) .rank-number {
+    background-color: blue;
+}
+
+.rank-list > .rank-box:nth-child(3) .rank-number {
+    background-color: greenyellow;
+}
+
+.rank-img {
+    padding: 5px;
+}
+
+.rank-image {
+    width: 100%;
+}
+
+.rank-content {
+    padding: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.rank-title {
+    color: red;
+    font-weight: bold;
+}
+
+    .rank-title:hover {
+        text-decoration: none;
+        color: rgb(179, 3, 179);
+    }
+
+.rank-info {
+    color: blue;
+}
+
+.footer {
+    background-image: url("../images/rsz_galaxy.jpg");
+    padding: 10px;
+    position: relative;
+    animation: galaxy-flow infinite;
+    animation-duration: 20s;
+    box-shadow: 0 -7px 40px -7px white;
+    text-align: center;
+}
+
+    .footer p,
+    .footer h5 {
+        color: aqua;
+    }
+
+@keyframes galaxy-flow {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -400px 0;
+    }
+}
+
+.back-to-top {
+    position: fixed;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    right: 20px;
+    bottom: 20px;
+    background-color: red;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+    .back-to-top:hover {
+        text-decoration: none;
+        color: gold;
+    }
+
+.btnThemXoaSua {
+    position: fixed;
+    height: 50px;
+    width: 50px;
+    left: 20px;
+    bottom: 20px;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#over {
+    background-color: black;
+    opacity: 0.7;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: none;
+}
+
+.edit-dialog {
+    width: 350px;
+    height: 200px;
+    border-radius: 10px;
+    position: fixed;
+    top: 35%;
+    left: 35%;
+    z-index: 9999;
+    background-image: url("../images/diskgalaxy.jpg");
+    padding-top: 50px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    display: none;
+}
+
+    .edit-dialog h5 {
+        color: white;
+        text-align: center;
+    }
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    display: block;
+}
+
+    .close:hover {
+        color: red;
+    }
+
+.btn-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.btnInsert {
+    height: 40px;
+    width: 100px;
+    border-radius: 10px;
+    background-color: green;
+    color: white;
+}
+
+.btnDelete {
+    height: 40px;
+    width: 100px;
+    border-radius: 10px;
+    background-color: red;
+    color: white;
+}
+
+.thanhdangnhap {
+    position: relative;
+}
+
+.menuitemDN {
+    background-color: white;
+    color: black;
+}
+
+/*----------------------Nội Dung Phim----------------------*/
+
+.original-name-of-movie {
+    color: yellow;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.name-of-movie {
+    color: gold;
+}
+
+.attr-of-movie {
+    color: white;
+}
+
+.info-of-movie {
+    color: lawngreen;
+}
+
+.content-movie-title {
+    text-align: center;
+    color: white;
+    background-color: green;
+    margin: 10px 0px;
+    padding: 5px;
+    width: 100%;
+}
+
+.content-movie {
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+.movie-btnbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.btn-xemphim,
+.btn-theodoi {
+    display: block;
+    border: 2px solid darkcyan;
+    background-color: black;
+    color: gray;
+    text-decoration: none;
+    height: 30px;
+    width: 150px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+    .btn-xemphim:hover,
+    .btn-theodoi:hover {
+        color: gold;
+    }
+
+.video-box {
+    background-color: black;
+    border: 2px solid darkcyan;
+    width: 700px;
+    height: 500px;
+    border-radius: 10px;
+    position: fixed;
+    top: 15%;
+    left: 22.5%;
+    z-index: 9999;
+    animation: border-change infinite 4s;
+    display: none;
+}
+
+@keyframes border-change {
+    0% {
+        border-color: gold;
+    }
+
+    25% {
+        border-color: darkcyan;
+    }
+
+    75% {
+        border-color: gold;
+    }
+
+    100% {
+        border-color: darkcyan;
+    }
+}
+
+/*----------------------Các trang khác----------------------*/
+
+.lbThongTin {
+    color: dodgerblue;
+}
+
+.chkboxGhiNhoDangNhap {
+    color: gold;
+}
+
+.chkboxDongYDieuKhoan {
+    color: lawngreen;
+}
+
+#mnuTrangThaiDangNhap img {
+    max-height: 65px;
+    margin-right: 50px;
+}
+
+.lbNhapTenPhim {
+    color: gold;
+}
+
+.btnSave {
+    display: block;
+    border: 2px solid black;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    height: 30px;
+    width: 150px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.btnXoa {
+    display: block;
+    border: 2px solid lime;
+    background-color: black;
+    color: yellow;
+    text-decoration: none;
+    height: 30px;
+    width: 150px;
+    text-align: center;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+
+.upload {
+    color: white;
+}
+
+.control {
+    color: white;
+}
+
+.frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.failed-to-search {
+    color: white;
+}
